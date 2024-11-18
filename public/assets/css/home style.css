@@ -1,0 +1,40 @@
+.border-btn1 {
+    border: 1px solid #8b92dd;
+    padding: 19px 69px !important;
+    margin: 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.border-btn2 {
+
+    border: 1px solid #8b92dd;
+    color: #8b92dd;
+    font: "Muli", sans-serif;
+    background: none;
+    padding: 19px 69px;
+    margin: 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    position: relative;
+    transition: color 0.4s linear;
+    overflow: hidden;
+    margin: 0;
+}
+
+.upload-cv {
+    background-image: url("../img/backgrounds/bg1.avif") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
