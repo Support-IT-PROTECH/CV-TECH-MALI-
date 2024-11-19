@@ -13,13 +13,12 @@
                     <h2 class="fw-bold"> Démarquez-vous avec un CV <br>en ligne unique ! </h2>
                     <div class="mt-3">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-primary border-btn1" data-bs-toggle="modal"
-                            data-bs-target="#modalCenterUploadCV">
-                            Déposer mon CV
-                        </button>
+                       
+                           <a href="{{route('form')}}" style="color: #fff"> <button type="button" class="btn btn-outline-primary border-btn1">Déposer mon CV    </button></a> 
+                    
 
                         <!-- Modal -->
-                        <div class="modal fade" id="modalCenterUploadCV" tabindex="-1" style="display: none;"
+                        {{-- <div class="modal fade" id="modalCenterUploadCV" tabindex="-1" style="display: none;"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -29,24 +28,42 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form>
+                                    <form  action="{{route('store')}}" method="POST">
+                                        @csrf
                                         <div class="modal-body">
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control" id="identifiant"
-                                                    placeholder="Traoré Amadou">
+                                                    placeholder="Traoré Amadou" name="nom">
                                                 <label for="identifiant">Nom et Prénom</label>
                                             </div>
+                                            @error('nom')
+                                                <p class="text-danger ">{{$message}}</p>
+                                            @enderror
+                                            <div class="form-floating mb-3">
+                                                <input type="Email" class="form-control" id="identifiant"
+                                                    placeholder="Traoré Amadou" name="email">
+                                                <label for="identifiant">Email</label>
+                                            </div>
+                                            @error('email')
+                                            <p class="text-danger ">{{$message}}</p>
+                                              @enderror
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control" id="specialite"
-                                                    placeholder="Marketing Digital">
+                                                    placeholder="Marketing Digital" name="specialite">
                                                 <label for="specialite">Spécialité</label>
                                             </div>
+                                            @error('specialite')
+                                            <p class="text-danger ">{{$message}}</p>
+                                            @enderror
                                             <div>
                                                 <a href="#" class="border-btn2 border-btn4"
                                                     onclick="document.getElementById('fileInput').click(); return false;">Charger
                                                     le CV</a>
-                                                <input type="file" id="fileInput" style="display:none;" />
+                                                <input type="file" id="fileInput" style="display:none;" name="file" />
                                             </div>
+                                            @error('file')
+                                            <p class="text-danger ">{{$message}}</p>
+                                           @enderror
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -57,7 +74,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
