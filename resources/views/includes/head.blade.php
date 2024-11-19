@@ -36,7 +36,8 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/home style.css') }}" rel="stylesheet">
 
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 

@@ -1,10 +1,9 @@
 @extends('layouts.appGuest')
 
 @section('content')
+    <style>
 
-<style>
-
-</style>
+    </style>
     <!-- Upload CV content -->
     <div class="" style="min-height: 15vh; ">
         <div class="card upload-cv border-0 h-100 d-flex align-items-center justify-content-center  pt-5 pb-5">
@@ -68,7 +67,7 @@
     <div class="container">
         <hr class="border border-primary border-3 opacity-25">
     </div>
-    
+
     <!-- offre content and Company content -->
     <div class="container mt-3" style="min-height: 53vh;">
         <div class="col-xl-12">
@@ -78,26 +77,16 @@
                 {{-- Bouton Dernières offres & Les entreprise --}}
                 <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
                     <li class="nav-item">
-                        <button
-                            type="button"
-                            class="nav-link active text-uppercase fw-bold"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-last-offer"
-                            aria-controls="navs-pills-last-offer"
-                            aria-selected="true">
+                        <button type="button" class="nav-link active text-uppercase fw-bold" role="tab"
+                            data-bs-toggle="tab" data-bs-target="#navs-pills-last-offer"
+                            aria-controls="navs-pills-last-offer" aria-selected="true">
                             <i class="tf-icons bx bx-home"></i> Dernières Offres
                             <!-- <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">3</span> -->
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button
-                            type="button"
-                            class="nav-link text-uppercase fw-bold"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-all-entreprise"
-                            aria-controls="navs-pills-all-entreprise"
+                        <button type="button" class="nav-link text-uppercase fw-bold" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-pills-all-entreprise" aria-controls="navs-pills-all-entreprise"
                             aria-selected="false">
                             <i class="tf-icons bx bx-home"></i> Les entreprises
                         </button>
@@ -111,29 +100,52 @@
                     <div class="tab-pane fade show active" id="navs-pills-last-offer" role="tabpanel">
 
                         <div class="row">
-                            @for ($i = 1; $i <= 4; $i++)
-                                
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="row g-0">
-                                        <div class="col-md-3 d-flex align-items-center p-1">
-                                            <img class="card-img card-img-left" src="{{asset('assets/img/elements/'.$i.'.jpg') }}" alt="Card image">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Africa Agency Mining</h5>
-                                                <p class="card-text">
-                                                    Récrute : 1 Spécialiste en Marketing Digital
-                                                </p>
-                                                <a href="#" class="link">En savoir plus</a>
+                            {{-- @for ($i = 1; $i <= 4; $i++)
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-3 d-flex align-items-center p-1">
+                                                <img class="card-img card-img-left"
+                                                    src="{{ asset('assets/img/elements/' . $i . '.jpg') }}"
+                                                    alt="Card image">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Africa Agency Mining</h5>
+                                                    <p class="card-text">
+                                                        Récrute : 1 Spécialiste en Marketing Digital
+                                                    </p>
+                                                    <a href="#" class="link">En savoir plus</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
+                            @endfor --}}
 
-                            </div>
+                            @foreach ($travails as $travail)
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-3 d-flex align-items-center p-1">
+                                                <img class="card-img card-img-left"
+                                                    src="./image/{{ $travail->company_logo }}" alt="Card image">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ $travail->company_name }}</h5>
+                                                    <p class="card-text">
+                                                        Récrute : {{ $travail->offre_name }}
+                                                    </p>
+                                                    <a href="#" class="link">En savoir plus</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            @endfor
+                                </div>
+                            @endforeach
 
                         </div>
                         <div class="text-center">
@@ -148,26 +160,26 @@
                         <div class="row">
 
                             @for ($i = 1; $i <= 6; $i++)
-                            
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="row g-0 ps-3 pe-3">
-                                        <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                            <img class="card-img" src="{{asset('assets/img/elements/'.$i.'.jpg') }}" alt="Card image">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Africa Agency Mining</h5>
-                                                <p class="card-text">
-                                                    Spécialiste en Marketing Digital
-                                                </p>
-                                                <a href="#" class="">En savoir plus</a>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="row g-0 ps-3 pe-3">
+                                            <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                                <img class="card-img"
+                                                    src="{{ asset('assets/img/elements/' . $i . '.jpg') }}"
+                                                    alt="Card image">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Africa Agency Mining</h5>
+                                                    <p class="card-text">
+                                                        Spécialiste en Marketing Digital
+                                                    </p>
+                                                    <a href="#" class="">En savoir plus</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
                             @endfor
 
 
@@ -185,6 +197,4 @@
             </div>
         </div>
     </div>
-
-  
 @endsection
