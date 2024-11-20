@@ -23,3 +23,6 @@ Route::get('/pdf/{filename}', function ($filename) {
 
     return response()->file($path);
 })->name('upload');
+Route::get('edit/{depot}', [HomeController::class, 'edit'])->name('edit');
+Route::put('edit/{depot}', [HomeController::class, 'update'])->name('update');
+Route::get('delete/{depot}', [HomeController::class, 'delete'])->name('delete');

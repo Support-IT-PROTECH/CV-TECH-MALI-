@@ -44,7 +44,16 @@
                             <p class="card-text">
                                 Date: {{$depot->created_at->format('d/m/Y')}}
                             </p>
-                            <a href="{{route('upload',$depot->file)}}" class="link">Voir CV</a>
+                           <p> <a href="{{route('upload',$depot->file)}}" class="link">Voir CV</a></p>
+                         <div>
+                            <a href="{{route('edit',$depot->id)}}" class="link">  
+                                <button class="btn btn-success">Modifier </button>
+                            </a>
+                            <a href="{{route('delete',$depot->id)}}" class="link"> 
+                            <button class="btn btn-outline-danger">Supprimer</button>
+                            </a>
+                         </div>
+                           
                         </div>
                     </div>
                 </div>

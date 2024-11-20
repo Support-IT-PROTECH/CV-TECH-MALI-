@@ -48,10 +48,30 @@ class HomeController extends Controller
         toastr()->timeout(5000)->closeButton()->success('CV deposer avec succès !');
         return redirect('/');
     }
-    // public function downloadpdf($id)
-    // {
-    //     $depots = Depot::all();
-    //     $pdf = Pdf::loadView('pdf', compact('depots'));
-    //     return $pdf->download('file.pdf');
-    // }
+    public function edit(Depot $depot)
+    {
+
+        return view('edit', compact('depot'));
+    }
+    public function update(Depot $depot, Request $request)
+    {
+        $depot->nom = $request->nom;
+        $depot->email = $request->email;
+        $depot->specialite = $request->specialite;
+        if ($request->hasFile('file')) {
+            $file = $request->file;
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $request->file->move('storage', $filename);
+            $depot->file = $filename;
+        }
+        $depot->save();
+        toastr()->timeout(5000)->closeButton()->success('CV mis à jour avec succès!');
+        return redirect('/');
+    }
+    public function delete(Depot $depot)
+    {
+        $depot->delete();
+        toastr()->timeout(5000)->closeButton()->success('CV supprimé avec succès!');
+        return redirect('/');
+    }
 }
