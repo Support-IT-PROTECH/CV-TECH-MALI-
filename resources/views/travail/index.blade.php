@@ -40,6 +40,7 @@
 
             @foreach ($travails as $travail)
                 <div class="col-md-6">
+
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-3 d-flex align-items-center p-1">
@@ -63,7 +64,8 @@
 
         </div>
         <div class="text-center">
-            <a href="#" class="btn btn-outline-primary">Voir plus d'offre</a>
+            {{-- <a href="#" class="btn btn-outline-primary">Voir plus d'offre</a> --}}
+            {{ $travails->links() }}
         </div>
 
     </div>

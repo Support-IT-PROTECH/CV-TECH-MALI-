@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $travails = Travail::all();
-        return view('home', compact('travails'));
+        $travails = Travail::paginate(4);
+        return view("home", ['travails' => $travails]);
     }
 }

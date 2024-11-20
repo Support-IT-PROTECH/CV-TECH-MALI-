@@ -12,8 +12,8 @@ class TravailController extends Controller
      */
     public function index()
     {
-        $travails = Travail::all();
-        return view("travail.index", compact('travails'));
+        $travails = Travail::paginate(4);
+        return view("travail.index", ['travails' => $travails]);
     }
 
     /**
@@ -53,9 +53,11 @@ class TravailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Travail $travail)
+    public function show(Travail $travail, $id)
     {
-        //
+
+        $travail = Travail::find($id);
+        return view('travail.show', ['travail' => $travail]);
     }
 
     /**
