@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index');
@@ -13,7 +14,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/form', [HomeController::class, 'form'])->name('form');
 Route::post('/store', [HomeController::class, 'store'])->name('store');
-// Route::get('/downloadpdf/{id}', [HomeController::class, 'downloadpdf'])->name('downloadpdf');
+
 Route::get('/pdf/{filename}', function ($filename) {
     $path = storage_path('app/public/' . $filename);
 
@@ -26,3 +27,5 @@ Route::get('/pdf/{filename}', function ($filename) {
 Route::get('edit/{depot}', [HomeController::class, 'edit'])->name('edit');
 Route::put('edit/{depot}', [HomeController::class, 'update'])->name('update');
 Route::get('delete/{depot}', [HomeController::class, 'delete'])->name('delete');
+Route::get('cv_content', [HomeController::class, 'Cvcontent'])->name('cv_content');
+Route::get('cv_content2', [HomeController::class, 'Cvcontent2'])->name('cv_content');

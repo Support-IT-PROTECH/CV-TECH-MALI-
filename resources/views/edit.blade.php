@@ -15,10 +15,9 @@
                 <form action="{{route('update',$depot->id)}}" method="POST" class="p-2" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    {{-- @if (Session()->has('success'))
-                        <div class="alert alert-success">{{session()->get('success')}}</div>
-                    @endif --}}
+                
                     <h2 class="text-center mb-2 fw-bold">Formulaire</h2>
+
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nom et prenom</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" name="nom" value="{{$depot->Nom}}" >
@@ -40,8 +39,9 @@
                       </div>
                     
                       <div class="mb-3">
-                        <button class="btn btn-success" type="submit">Modifier</button>
+                        <button class="btn btn-outline-success" type="submit">Modifier</button>
                       </div>
+
                 </form>
             </div>
         </div>

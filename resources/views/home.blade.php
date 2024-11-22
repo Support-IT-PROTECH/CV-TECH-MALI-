@@ -3,34 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        {{-- <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="card text-center mt-3">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-body-secondary">
-              2 days ago
-            </div>
-          </div> --}}
+     
           <h2 class="text-primary text-center fw-bolder mb-4 ">La liste de tous les CV deposes</h2>
           @forelse ($depots as $depot)
           <div class="col-md-6 ">
