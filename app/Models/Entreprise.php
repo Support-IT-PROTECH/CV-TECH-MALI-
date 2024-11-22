@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Travail;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Travail extends Model
+class Entreprise extends Model
 {
     protected $fillable = [
         'company_name',
         'company_logo',
-        'offre_name'
+        'company_description',
     ];
-
-    public function entreprise()
+    public function travails()
     {
-        return $this->belongsTo(Entreprise::class);
+        return $this->hasMany(Travail::class);
     }
 }

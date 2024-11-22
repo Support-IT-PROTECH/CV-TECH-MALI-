@@ -149,9 +149,9 @@
 
                         </div>
                         <div class="text-center">
-                            {{-- <a href="#" class="btn btn-outline-primary">Voir plus d'offre</a> --}}
-                            {{-- {{ $travails->links() }} --}}
-                            {{ $travails->links() }}
+                            <a href="#" class="btn btn-outline-primary">Voir plus d'offre</a>
+                            {{-- {{ $travails->links() }}
+                            {{ $travails->links() }} --}}
 
                         </div>
 

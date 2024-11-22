@@ -12,7 +12,8 @@ class TravailController extends Controller
      */
     public function index()
     {
-        $travails = Travail::paginate(4);
+        $travails = Travail::latest()
+            ->paginate(4);
         return view("travail.index", ['travails' => $travails]);
     }
 
@@ -63,9 +64,10 @@ class TravailController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Travail $travail)
+    public function edit(Travail $travail, $id)
     {
-        //
+        $travail = Travail::find($id);
+        return view("travail.edit", ['travail' => $travail]);
     }
 
     /**
@@ -73,7 +75,24 @@ class TravailController extends Controller
      */
     public function update(Request $request, Travail $travail)
     {
-        //
+        $request->validate([
+            'company' => ['required', 'min:3'],
+            'offre' => ['required']
+        ]);
+
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('image', $filename);
+            $travail->company_logo = $filename;
+        }
+
+        $travail->update([
+            'company_name' => $request->company,
+            'offre_name' => $request->offre,
+        ]);
+
+        return redirect("/travails/$travail->id");
     }
 
     /**
@@ -81,6 +100,8 @@ class TravailController extends Controller
      */
     public function destroy(Travail $travail)
     {
-        //
+        $travail->delete();
+
+        return redirect('/travails');
     }
 }

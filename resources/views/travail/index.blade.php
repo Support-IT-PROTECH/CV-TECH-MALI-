@@ -53,7 +53,8 @@
                                     <p class="card-text">
                                         Récrute : {{ $travail->offre_name }}
                                     </p>
-                                    <a href="#" class="link">En savoir plus</a>
+                                    <a href="/travails/{{ $travail->id }}" class="link mt-2 inline-block">En savoir
+                                        plus</a>
                                 </div>
                             </div>
                         </div>

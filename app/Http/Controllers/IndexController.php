@@ -10,7 +10,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $travails = Travail::paginate(4);
+        $travails = Travail::latest()->paginate(4);
         return view("index", ['travails' => $travails]);
     }
 }
