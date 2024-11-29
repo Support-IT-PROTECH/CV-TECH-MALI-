@@ -66,7 +66,7 @@ class HomeController extends Controller
         }
         $depot->save();
         toastr()->timeout(5000)->closeButton()->success('CV mis à jour avec succès!');
-        return redirect('/home');
+        return redirect()->back();
     }
     public function delete(Depot $depot)
     {

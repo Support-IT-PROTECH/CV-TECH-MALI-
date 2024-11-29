@@ -6,7 +6,6 @@
     <title>CV Front-End</title>
     <link rel="stylesheet" href="{{asset('css/style2.css')}}">
 
-  
 </head>
 <body>
     <div class="container">
@@ -79,6 +78,6 @@
             </section>
         </main>
     </div>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
         <div class="row d-flex justify-content-center align-items-center mt-5 my-4" >
             <div class="card shadow" style="width:340px">
                 <form action="{{route('store')}}" method="POST" class="p-2" enctype="multipart/form-data">
-                 
+                 @csrf
                     <h2 class="text-center mb-2 fw-bold">Formulaire</h2>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nom et prenom</label>
@@ -51,6 +51,9 @@
             </div>
         </div>
     </div>
+
+    
+      
     
 </body>
 </html>

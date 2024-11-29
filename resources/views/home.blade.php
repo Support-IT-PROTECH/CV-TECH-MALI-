@@ -22,8 +22,8 @@
                             <a href="{{route('edit',$depot->id)}}" class="link">  
                                 <button class="btn btn-success">Modifier </button>
                             </a>
-                            <a href="{{route('delete',$depot->id)}}" class="link"> 
-                            <button class="btn btn-outline-danger">Supprimer</button>
+                            <a href="{{route('delete',$depot->id)}}" class="link" onclick="deletepop(event)"> 
+                            <button class="btn btn-outline-danger" >Supprimer</button>
                             </a>
                          </div>
                            
@@ -54,7 +54,25 @@
           
     </div>
 </div>
-          
-         
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function deletepop(event) {
+        event.preventDefault();
+        var url=event.currentTarget.getAttribute('href');
+        console.log(url);
+        swal({
+title: "Etes vous Sur de Vouloir supprimer?",
+text: "Une fois supprimé, vous ne pourrez plus récupérer ce fichier!",
+icon: "warning",
+buttons: true,
+dangerMode: true,
+})
+.then((willCancel) => {
+if (willCancel) {
+window.location.href = url;
+} 
+});
 
+    }
+</script>
 @endsection
