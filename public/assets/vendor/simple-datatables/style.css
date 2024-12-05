@@ -66,7 +66,8 @@
 
 .datatable-pagination a:hover,
 .datatable-pagination button:hover {
-	background-color: #d9d9d9;
+	background-color: #012970;
+	color: #000;
 }
 
 .datatable-pagination .datatable-active a,
@@ -75,7 +76,8 @@
 .datatable-pagination .datatable-active button,
 .datatable-pagination .datatable-active button:focus,
 .datatable-pagination .datatable-active button:hover {
-	background-color: #d9d9d9;
+	background-color: #012970;
+	color: #ffffff;
 	cursor: default;
 }
 

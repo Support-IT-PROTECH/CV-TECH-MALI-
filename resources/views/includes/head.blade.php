@@ -34,9 +34,8 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/home style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/my_style.css') }}" rel="stylesheet">
 
-    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 

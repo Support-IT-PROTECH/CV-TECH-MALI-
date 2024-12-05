@@ -1,10 +1,6 @@
 @extends('layouts.appGuest')
 
 @section('content')
-
-<style>
-
-</style>
     <!-- Upload CV content -->
     <div class="" style="min-height: 15vh; ">
         <div class="card upload-cv border-0 h-100 d-flex align-items-center justify-content-center  pt-5 pb-5">
@@ -68,117 +64,135 @@
     <div class="container">
         <hr class="border border-primary border-3 opacity-25">
     </div>
-    
+
     <!-- offre content and Company content -->
-    <div class="container mt-3" style="min-height: 53vh;">
+    <div class="container mt-3" style="min-height: 53vh">
         <div class="col-xl-12">
             <!-- <h6 class="text-muted">Filled Pills</h6> -->
             <div class="nav-align-top mb-4">
-
-                {{-- Bouton Dernières offres & Les entreprise --}}
+                
+                <!-- {{-- Bouton Dernières offres & Les entreprise --}} -->
                 <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
                     <li class="nav-item">
-                        <button
-                            type="button"
-                            class="nav-link active text-uppercase fw-bold"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-last-offer"
-                            aria-controls="navs-pills-last-offer"
-                            aria-selected="true">
+                        <button type="button" class="nav-link active text-uppercase fw-bold" role="tab"
+                            data-bs-toggle="tab" data-bs-target="#navs-pills-last-offer"
+                            aria-controls="navs-pills-last-offer" aria-selected="true">
                             <i class="tf-icons bx bx-home"></i> Dernières Offres
                             <!-- <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">3</span> -->
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button
-                            type="button"
-                            class="nav-link text-uppercase fw-bold"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-all-entreprise"
-                            aria-controls="navs-pills-all-entreprise"
+                        <button type="button" class="nav-link text-uppercase fw-bold" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-pills-all-entreprise" aria-controls="navs-pills-all-entreprise"
                             aria-selected="false">
                             <i class="tf-icons bx bx-home"></i> Les entreprises
                         </button>
                     </li>
-
                 </ul>
 
                 <div class="tab-content">
-
-                    {{-- Liste des offres --}}
+                    <!-- {{-- Liste des offres --}} -->
                     <div class="tab-pane fade show active" id="navs-pills-last-offer" role="tabpanel">
-
-                        <div class="row">
-                            @for ($i = 1; $i <= 4; $i++)
-                                
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="row g-0">
-                                        <div class="col-md-3 d-flex align-items-center p-1">
-                                            <img class="card-img card-img-left" src="{{asset('assets/img/elements/'.$i.'.jpg') }}" alt="Card image">
+                        <div class="row g-3 pt-2">
+                            @for ($i = 1; $i <= 6; $i++)
+                                <div class="col-md-6 col-lg-4 mt-2">
+                                    <div class="card p-1 text-center">
+                                        <!-- logo -->
+                                        <div class="imgBox p-2">
+                                            <img src="assets/img/product-2.jpg"
+                                                class="card-img-top w-25 p-1 rounded border border-primary"
+                                                alt="..." />
                                         </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Africa Agency Mining</h5>
-                                                <p class="card-text">
-                                                    Récrute : 1 Spécialiste en Marketing Digital
-                                                </p>
-                                                <a href="#" class="link">En savoir plus</a>
+
+                                        <!-- Contenu -->
+                                        <div class="card-body">
+                                            <h5 class="card-title pt-2 pb-2 fw-bold" style="font-size: 100%">
+                                                Spécialiste Marketing Digital
+                                            </h5>
+                                            <a href="#" class="card-link">
+                                                <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
+                                                    <i class="bi bi-buildings-fill"></i>
+                                                    Africa Mining Agency
+                                                </h6>
+                                            </a>
+
+                                            <div class="row">
+                                                <div class="col-6 text-start">
+                                                    <!-- Contenu de la colonne gauche -->
+                                                    <h6 class="fw-bold card-title m-0 p-1" style="font-size: 11px">
+                                                        <i class="bi bi-geo-alt-fill"></i>
+                                                        BKO, ACI 2000
+                                                    </h6>
+                                                </div>
+                                                <div class="col-6 text-end">
+                                                    <!-- Contenu de la colonne droite -->
+                                                    <h6 class="fw-bold card-title m-0 p-1" style="font-size: 11px">
+                                                        <i class="bi bi-clock-fill"></i>
+                                                        Temps Plein
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <hr class="border border-primary border-1 opacity-25 m-0" />
+                                            <div class="border-0 mt-4 p-0">
+                                                <a href="{{ route('job-infos') }}"
+                                                    class="btn btn-outline-info fw-semi-bold" style="font-size: 12px">
+                                                    En savoir plus
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-
                             @endfor
-
-                        </div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-outline-primary">Voir plus d'offre</a>
                         </div>
 
+                        <div class="text-center mt-3">
+                            <a href="{{ route('jobs-list') }}" class="btn btn-outline-primary">Voir plus d'offre</a>
+                        </div>
                     </div>
 
-                    {{-- Listes des entreprises --}}
+                    <!-- {{-- Listes des entreprises --}} -->
                     <div class="tab-pane fade" id="navs-pills-all-entreprise" role="tabpanel">
-
-                        <div class="row">
-
+                        <div class="row g-3">
+                            {{-- Liste des entreprise --}}
                             @for ($i = 1; $i <= 6; $i++)
-                            
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="row g-0 ps-3 pe-3">
-                                        <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                            <img class="card-img" src="{{asset('assets/img/elements/'.$i.'.jpg') }}" alt="Card image">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card position-relative pb-4 pt-2 h-100">
+                                        <span class="position-absolute top-0 end-0 badge bg-warning">
+                                            2 offre(s)
+                                        </span>
+                                        <div class="imgBox text-center">
+                                            <img src="assets/img/product-1.jpg"
+                                                class="card-img-top rounded-circle border-3 border-primary" alt="..."
+                                                style="max-width: 25%; border: 2px dashed" />
                                         </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Africa Agency Mining</h5>
-                                                <p class="card-text">
-                                                    Spécialiste en Marketing Digital
-                                                </p>
-                                                <a href="#" class="">En savoir plus</a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center p-1">
+                                                Africa Agency Mining
+                                            </h5>
+                                            <p class="card-text mb-2" style="font-size: 11px;">
+                                                Some quick example text to build on the card title
+                                                and Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ut.
+                                            </p>
+                                            <div class="badgeContenair">
+                                                <span class="badge bg-secondary">Marketing</span>
+                                                <span class="badge bg-secondary">Comptabilité</span>
+                                                <span class="badge bg-secondary">Audit</span>
+                                            </div>
+                                            <div
+                                                class="position-absolute w-100 bottom-0 end-0 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
+                                                <a href="companyDetails.html" class="link">En savoir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
                             @endfor
-
-
                         </div>
-                        <div class="text-center">
-                            <a href="listETS.html" class="btn btn-outline-primary">
-                                <i class='bx bx-right-arrow-circle'></i>
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-outline-primary">
+                                <i class="bx bx-right-arrow-circle"></i>
                                 Explorer plus
                             </a>
                         </div>
-
                     </div>
 
                 </div>
@@ -186,5 +200,43 @@
         </div>
     </div>
 
-  
+    <div class="container">
+        <hr class="border border-primary border-3 opacity-25" />
+    </div>
+
+    <!-- TOP 5 PROFILE SELECTED  -->
+    <div class="container text-center">
+
+        <h2 class="card-title fs-2 fw-bold text-uppercase text-center mb-2">
+            <i class="bi bi-star-fill"></i>
+            Meilleurs Profiles
+            <i class="bi bi-star-fill"></i>
+        </h2>
+        <div class="row g-3">
+            @for ($i = 0; $i < 4; $i++)
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card shadow h-100">
+                        <div class="card-header p-0">
+                            <img src="assets/img/profile-img.jpg" class="card-img-top w-50 rounded-circle p-2"
+                                alt="..." />
+                        </div>
+                        <div class="card-body pb-0">
+                            <h5 class="card-title fw-bold">Moussa Sangaré</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Auditeur Comptable & Financier
+                            </h6>
+
+                            <span class="badge bg-warning">+3 ans Exp</span>
+                        </div>
+                        <div class="w-100 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
+                            <a href="{{ route('top-profile') }}" class="link fw-semi-bold">
+                                <i class="bi bi-info-circle"></i>
+                                En savoir plus
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endfor
+        </div>
+    </div>
 @endsection
