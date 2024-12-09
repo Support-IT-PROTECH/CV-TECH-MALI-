@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CompetencePersonnelController;
+use App\Http\Controllers\CompetenceTechniqueController;
+use App\Http\Controllers\ExperienceDetailController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\OffreDetailController;
 use Illuminate\Support\Facades\Auth;
@@ -31,3 +34,36 @@ Route::get('/delete/{offre}', [OffreController::class, 'destroy'])->name('offre.
 Route::get("/details", [OffreDetailController::class, 'index'])->name('detail.index');
 Route::get("/details/create", [OffreDetailController::class, 'create'])->name('detail.create');
 Route::post("/details/create", [OffreDetailController::class, 'store'])->name('detail.store');
+Route::get("/details/{offreDetail}", [OffreDetailController::class, 'show'])->name('detail.show');
+Route::get("/details/{offreDetail}/edit", [OffreDetailController::class, 'edit'])->name('detail.edit');
+Route::patch("/details/{offreDetail}", [OffreDetailController::class, 'update'])->name('detail.update');
+Route::delete("/details/{offreDetail}", [OffreDetailController::class, 'destroy'])->name('detail.delete');
+
+// Offres Competences Personnelles
+
+Route::get("/personels", [CompetencePersonnelController::class, "index"]);
+Route::get("/personels/create", [CompetencePersonnelController::class, "create"]);
+Route::post("/personels/create", [CompetencePersonnelController::class, "store"]);
+Route::get("/personels/{competencePersonnelle}", [CompetencePersonnelController::class, "show"]);
+Route::get("/personels/{competencePersonnelle}/edit", [CompetencePersonnelController::class, "edit"]);
+Route::patch("/personels/{competencePersonnelle}/edit", [CompetencePersonnelController::class, "update"]);
+Route::delete("/personels/{competencePersonnelle}", [CompetencePersonnelController::class, "destroy"]);
+
+
+// Offres Competences Techniques
+Route::get("/techniques", [CompetenceTechniqueController::class, "index"]);
+Route::get("/techniques/create", [CompetenceTechniqueController::class, "create"]);
+Route::post("/techniques/create", [CompetenceTechniqueController::class, "store"]);
+Route::get("/techniques/{competenceTechnique}", [CompetenceTechniqueController::class, "show"]);
+Route::get("/techniques/{competenceTechnique}/edit", [CompetenceTechniqueController::class, "edit"]);
+Route::patch("/techniques/{competenceTechnique}/edit", [CompetenceTechniqueController::class, "update"]);
+Route::delete("/techniques/{competenceTechnique}", [CompetenceTechniqueController::class, "destroy"]);
+
+// Experiences Details
+Route::get("/experiences", [ExperienceDetailController::class, "index"])->name("experiences.index");
+Route::get("/experiences/create", [ExperienceDetailController::class, "create"])->name("experiences.create");
+Route::post("/experiences/create", [ExperienceDetailController::class, "store"])->name("experiences.store");
+Route::get("/experiences/{experienceDetail}", [ExperienceDetailController::class, "show"])->name("experiences.show");
+Route::get("/experiences/{experienceDetail}/edit", [ExperienceDetailController::class, "edit"])->name("experiences.edit");
+Route::patch("/experiences/{experienceDetail}/edit", [ExperienceDetailController::class, "update"])->name("experiences.update");
+Route::delete("/experiences/{experienceDetail}", [ExperienceDetailController::class, "destroy"])->name("experiences.destroy");

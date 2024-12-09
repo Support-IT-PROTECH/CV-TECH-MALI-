@@ -12,7 +12,8 @@ class OffreDetailController extends Controller
      */
     public function index()
     {
-        return view('details.index');
+        $offre_details = OffreDetail::latest()->paginate(4);
+        return view('details.index', ['offre_details' => $offre_details]);
     }
 
     /**
@@ -29,31 +30,29 @@ class OffreDetailController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'offre_adresse' => ['required'],
-            'offre_situation' => ['required'],
-            'offre_horaire' => ['required'],
-            'offre_salaire' => ['required'],
+            "offre_adresse" => ["required",],
+            "offre_situation" => ["required",],
+            "offre_horaire" => ["required", "numeric"],
+            "offre_salaire" => ["required", "min:5", "numeric"],
+
         ]);
 
         // dd($request->input());
         // OffreDetail::create([
-        //     'adresse_offres' => $request->input('offre_adresse'),
-        //     'situation_offres' => $request->input('offre_situation'),
-        //     'horaire_offres' => $request->input('offre_horaire'),
-        //     'salaire_offres' => $request->input('offre_salaire'),
+        //     'adresse_offre' => request('offre_adresse'),
+        //     'situation_offre' => request('offre_situation'),
+        //     'horaire_offre' => request('offre_horaire'),
+        //     'salaire_offre' => request('offre_salaire'),
         // ]);
-        // dd($request->input());
 
-        $detail = new OffreDetail;
-        $detail->adresse_offres = $request->input('offre_adresse');
-        $detail->situation_offres = $request->input('offre_situation');
-        $detail->horaire_offres = $request->input('offre_horaire');
-        $detail->salaire_offres = $request->input('offre_salaire');
-        $detail->save();
+        $offre_details = new OffreDetail;
+        $offre_details->adresse_offre = $request->input('offre_adresse');
+        $offre_details->situation_offre = $request->input('offre_situation');
+        $offre_details->horaire_offre = $request->input('offre_horaire');
+        $offre_details->salaire_offre = $request->input('offre_salaire');
+        $offre_details->save();
 
-
-
-        return redirect()->route('details.index')->with('success', 'Detail Offre ajouté avec succès');
+        return redirect()->route('detail.index')->with('success', 'Detail enregistré avec succès!');
     }
 
     /**
@@ -61,7 +60,7 @@ class OffreDetailController extends Controller
      */
     public function show(OffreDetail $offreDetail)
     {
-        //
+        return view("details.show", ['offreDetail' => $offreDetail]);
     }
 
     /**
@@ -69,7 +68,7 @@ class OffreDetailController extends Controller
      */
     public function edit(OffreDetail $offreDetail)
     {
-        //
+        return view("details.edit", ['offreDetail' => $offreDetail]);
     }
 
     /**
@@ -77,7 +76,28 @@ class OffreDetailController extends Controller
      */
     public function update(Request $request, OffreDetail $offreDetail)
     {
-        //
+        $request->validate([
+            "offre_adresse" => ["required",],
+            "offre_situation" => ["required",],
+            "offre_horaire" => ["required", "numeric"],
+            "offre_salaire" => ["required", "min:5", "numeric"],
+
+        ]);
+        // dd($request->input());
+
+        $offreDetail->update([
+            'adresse_offre' => request('offre_adresse'),
+            'situation_offre' => request('offre_situation'),
+            'horaire_offre' => request('offre_horaire'),
+            'salaire_offre' => request('offre_salaire'),
+        ]);
+
+        $offreDetail->save();
+
+        // $offreDetail->up;
+
+        // dd($request->input());
+        return redirect("/details/$offreDetail->id");
     }
 
     /**
@@ -85,6 +105,7 @@ class OffreDetailController extends Controller
      */
     public function destroy(OffreDetail $offreDetail)
     {
-        //
+        $offreDetail->delete();
+        return redirect()->route('detail.index')->with('success', 'Detail supprimé avec succès!');
     }
 }

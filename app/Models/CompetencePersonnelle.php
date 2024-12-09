@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OffreDetail extends Model
+class CompetencePersonnelle extends Model
 {
     protected $fillable = [
-        "offre_adresse",
-        "offre_situation",
-        "offre_horaire",
-        "offre_salaire",
+        "competence_name",
     ];
 
     // public $timestamps = false;
