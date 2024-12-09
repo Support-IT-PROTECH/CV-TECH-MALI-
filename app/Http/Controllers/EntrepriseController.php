@@ -35,6 +35,7 @@ class EntrepriseController extends Controller
 
     public function entreprise_valeur()
     {
+
         return view('entreprise.entreprise_valeur');
     }
     public function store_valeur_entreprise(Request $request)
@@ -43,7 +44,7 @@ class EntrepriseController extends Controller
         $valeurs = new Entreprise_valeur();
         $valeurs->valeurs = $request->nom;
         $valeurs->save();
-        return redirect('/entreprise_secteurs_activite');
+        return redirect()->back();
     }
     public function entreprise_secteurs_activite()
     {
@@ -55,5 +56,6 @@ class EntrepriseController extends Controller
         $secteurs = new secteur_activite();
         $secteurs->Nom_secteur = $request->secteur;
         $secteurs->save();
+        return redirect()->back();
     }
 }
