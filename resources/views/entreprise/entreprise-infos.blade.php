@@ -7,7 +7,7 @@
         <p class="text-center">
             <img src="assets/img/logo.png" alt="">
         </p>
-        <h2 class="text-center" style="color: #012970">ENTRER VOTRE INFORMATION</h2>
+        <h2 class="text-center" style="color: #012970">ENTRER VOS INFORMATION</h2>
         <form action="{{route('store_entreprise')}}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="form-group mb-2">
