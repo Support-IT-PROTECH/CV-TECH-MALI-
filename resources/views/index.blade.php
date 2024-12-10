@@ -70,7 +70,7 @@
         <div class="col-xl-12">
             <!-- <h6 class="text-muted">Filled Pills</h6> -->
             <div class="nav-align-top mb-4">
-                
+
                 <!-- {{-- Bouton Dernières offres & Les entreprise --}} -->
                 <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
                     <li class="nav-item">
@@ -188,7 +188,7 @@
                             @endfor
                         </div>
                         <div class="text-center mt-3">
-                            <a href="#" class="btn btn-outline-primary">
+                            <a href="{{ route('company-lists') }}" class="btn btn-outline-primary">
                                 <i class="bx bx-right-arrow-circle"></i>
                                 Explorer plus
                             </a>
