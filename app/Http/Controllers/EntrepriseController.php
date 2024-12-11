@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\entreprise_infos_request;
 use App\Models\Entreprise;
+use App\Models\Entreprise_Adresse;
 use App\Models\Entreprise_valeur;
 use App\Models\secteur_activite;
 use Illuminate\Http\Request;
@@ -56,6 +57,22 @@ class EntrepriseController extends Controller
         $secteurs = new secteur_activite();
         $secteurs->Nom_secteur = $request->secteur;
         $secteurs->save();
+        return redirect()->back();
+    }
+    public function entreprise_adresse()
+    {
+        return view('entreprise.entreprise_adresse');  // affiche la page de l'adresse de l'entreprise
+    }
+    public function store_adresse(Entreprise_Adresse $adresse, Request $request)
+    {
+
+        // faire une requête pour insérer l'adresse dans la base de données
+
+        $adresse->adresse = $request->adresse;
+        $adresse->email = $request->email;
+        $adresse->telephone = $request->telephone;
+        $adresse->web_URL = $request->url;
+        $adresse->save();  // Enregistrer l'adresse dans la base de données
         return redirect()->back();
     }
 }

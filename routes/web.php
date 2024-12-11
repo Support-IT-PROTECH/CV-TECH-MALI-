@@ -30,6 +30,10 @@ Route::get('/entreprise_secteurs_activite', [EntrepriseController::class, 'entre
 // la route pour stocker les secteurs d'activite de l'entreprise
 Route::post('/store_secteurs_activite', [EntrepriseController::class, 'store_secteurs_activite'])->name('store_secteurs_activite');
 // la route pour afficher le formulaire de profil recherche
+Route::get('/entreprise_adresse', [EntrepriseController::class, 'entreprise_adresse'])->name('entreprise_adresse');
+// la route pour stocker les informations de l'adresse de l'entreprise
+Route::post('/store_adresse', [EntrepriseController::class, 'store_adresse'])->name('store_adresse');
+// la route pour afficher le formulaire du profil recherche
 Route::get('/profil_create', [ProfilController::class, 'profil_create'])->name('profil_create');
 // la route pour stocker les informations du profil recherche
 Route::post('/store_profil', [ProfilController::class, 'store_profil'])->name('store_profil');
@@ -49,3 +53,7 @@ Route::post('/store_experiences', [ProfilController::class, 'store_experiences']
 Route::get('/profil_create_competences', [ProfilController::class, 'competence_create'])->name('profil_competences');
 // la route pour stocker les informations des competences techniques du profil
 Route::post('/store_competences', [ProfilController::class, 'store_competences'])->name('store_competences');
+// la route pour afficher le formulaire des objectifs 
+Route::get('/profil_create_experiences_mission', [ProfilController::class, 'objectif_create'])->name('profil_create_experience_mission');
+// la route pour stocker les informations des objectifs du profil
+Route::post('/store_objectifs', [ProfilController::class, 'store_objectifs'])->name('store_objectifs');

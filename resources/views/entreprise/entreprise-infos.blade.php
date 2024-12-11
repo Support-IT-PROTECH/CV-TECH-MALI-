@@ -18,7 +18,7 @@
           @enderror
           <div class="form-group mb-2">
             {{-- <label for="image">Logo</label> --}}
-            <input type="file" class="form-control" name="image"  >
+            <input type="file" class="form-control" name="image">
           </div>
           @error('image')
               <p class="text-danger">{{$message}}</p>

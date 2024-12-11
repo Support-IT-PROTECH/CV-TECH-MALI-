@@ -38,6 +38,8 @@
             <input type="text" class="form-control" name="adresse" placeholder="Adresse"  >
           </div>
 
+        
+
           <div class="form-group mb-2">
             {{-- <label for="domaine">Domaine:</label> --}}
             <input type="text" class="form-control" name="diplome" placeholder="Diplome"  >

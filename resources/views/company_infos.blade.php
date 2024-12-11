@@ -14,17 +14,19 @@
             background-size: cover;
           ">
         <div class="position-absolute top-100 start-50 translate-middle w-75 container p-2 card shadow" id="second-card">
-            <div class="row d-flex align-items-center justify-content-center">
+             @forelse ($entreprises as $entreprise)
+             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-2">
-                    <img class="w-75 p-1 border rounded" src="assets/img/product-4.jpg" alt="" />
+                    <img class="w-75 p-1 border rounded" src="images/{{$entreprise->image}}" alt="" />
                 </div>
                 <div class="col position-relative">
                     <h5 class="card-title pt-0 pb-2 fw-bold" style="font-size: 100%">
-                        Africa Mining Agency
+                        {{$entreprise->nom}}
                     </h5>
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                         <i class="bi bi-buildings-fill"></i>
-                        Gestion des services miniers et de genie civil
+                        {{$entreprise->domaine}}
+                    
                     </h6>
                 </div>
             </div>
@@ -32,22 +34,21 @@
             <div class="">
                 <hr class="w-100 border border-primary border-1 opacity-25 m-1" />
             </div>
-
             <div class="description p-1" style="font-size: 14px; text-align: justify" id="description">
-                AA Mining avec un carnet riche de partenaires nationaux et
-                internationaux fiables et professionnels. Nous nous démarquons
-                surtout par l’expertise et l’expérience de notre équipe dans nos
-                secteurs d’interventions. Personnel direct, experts, consultants,
-                partenaires, AA Mining s’assure toujours de mettre les meilleurs
-                au service du meilleur pour vous.
-            </div>
-            <div class="row mt-3 mb-3">
-                <div class="col text-center">
-                    <button type="button" class="btn btn-outline-primary btn-block">
-                        Postuler maintenant
-                    </button>
-                </div>
-            </div>
+                {{$entreprise->description}}
+              </div>
+              <div class="row mt-3 mb-3">
+                  <div class="col text-center">
+                      <button type="button" class="btn btn-outline-primary btn-block">
+                          Postuler maintenant
+                      </button>
+                  </div>
+              </div>
+
+             @empty
+                 
+             @endforelse
+
         </div>
     </div>
 
@@ -60,60 +61,60 @@
                 <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                     Notre Vision
                 </h6>
-                Une structure solide formée par du personnel possédant une vaste
-                expérience. Nous aspirons à être la société de référence dans
-                l’accompagnement des acteurs du secteur minier au MALI
+                    {{$entreprise->vision}}
                 </p>
                 <!-- Valeur -->
                 <ul class="list-group" style="font-size: 12px">
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                         Nos Valeurs
                     </h6>
+                @foreach ($valeurs as $valeur)
+
                     <li class="list-group-item">
                         <i class="text-primary ri-checkbox-circle-fill"></i>
-                        Respect des notions santé et sécurité au travail, et respect de l’environnement
+                       {{$valeur->valeurs}}
                     </li>
-                    <li class="list-group-item">
-                        <i class="text-primary ri-checkbox-circle-fill"></i>
-                        Sens de l’éthique et de la légalité
-                    </li>
-                    <li class="list-group-item">
-                        <i class="text-primary ri-checkbox-circle-fill"></i>
-                        Excellence, Qualité, Innovation et respect strict des engagements
-                    </li>
-                    <li class="list-group-item">
-                        <i class="text-primary ri-checkbox-circle-fill"></i>
-                        Ouverture au monde
-                    </li>
+                @endforeach
+
+                    
                 </ul>
+                    
             </div>
             <div class="col-12 col-md-3 shadow rounded mt-4">
                 <div class="pt-2 pb-2">
                     <div class="row row-cols-1 row-cols-md-1 row-cols-sm-2 g-2" style="font-size: 13px; font-weight: 600">
-                        <div class="col">
-                            <h6 class="card-title m-0 p-1" style="font-size: 100%">
-                                <i class="me-2 bi bi-geo-alt"></i>
-                                BKO, Baco Djicoroni ACI
-                            </h6>
-                        </div>
+                     
 
                         <div class="col">
-                            <h6 class="card-title m-0 p-1" style="font-size: 100%">
-                                <i class="me-2 ri-mail-line"></i> info@aamining.net
-                            </h6>
-                        </div>
+                            @foreach ($adresses as $adresse)
+                     
+                            
+                        <h6 class="card-title m-0 p-1" style="font-size: 100%">
+                            <i class="me-2 bi bi-geo-alt"></i>
+                            {{$adresse->adresse}}
+                        </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title m-0 p-1" style="font-size: 100%">
+                            <i class="me-2 ri-mail-line"></i>
+                            {{$adresse->email}}
+                        </h6>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 ri-phone-line"></i>
-                                +223 87 76 65 09
+                               {{$adresse->telephone}}
                             </h6>
                         </div>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 ri-global-line"></i>
-                                https://aamining.net/
+                                {{$adresse->web_URL}}
                             </h6>
                         </div>
+                        @endforeach
+                      
+                        
+                      
                     </div>
                 </div>
             </div>
@@ -126,10 +127,11 @@
 
 
                 <p class="m-0">
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Mine</span>
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Energie</span>
-                    <span
-                        class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Consulting</span>
+                @foreach ($activities as $activitie)
+
+                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{$activitie->Nom_secteur}}</span> 
+                @endforeach
+
                 </p>
             </div>
             <!-- <div class="col-12 col-md-3 rounded mt-4"></div> -->

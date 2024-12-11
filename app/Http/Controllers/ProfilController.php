@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\competence_technique;
 use App\Models\credential;
+use App\Models\Experience_obejctif;
 use App\Models\Experience_professionnel;
 use App\Models\formation;
 use App\Models\Profile;
@@ -93,6 +94,18 @@ class ProfilController extends Controller
         $competence_technique->nom = $request->nom;
         $competence_technique->niveau_maitrise = $request->niveau_maitrise;
         $competence_technique->save();
+        return redirect()->back();
+    }
+    public function objectif_create()
+    {
+        return view("profile.experience_objectif");
+    }
+    public function store_objectifs(Request $request)
+    {
+        //validation du formulaire
+        $objectifs = new Experience_obejctif();
+        $objectifs->list_objectif = $request->objectif;
+        $objectifs->save();
         return redirect()->back();
     }
 }

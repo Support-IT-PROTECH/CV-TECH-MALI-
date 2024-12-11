@@ -2,6 +2,10 @@
 @section('content')
 {{-- creation du formulaire pour recuperer les donnees dans la table entreprise --}}
 <div class="container ">
+  <p style="text-align: right">
+    <a href="{{route('entreprise_adresse')}}" class="text-primary"> <i class="fa-solid fa-arrow-right"></i></a>
+  
+     </p>
     <div class="row d-flex justify-content-center mt-4">
       <div style="width: 450px">
         <p class="text-center">
