@@ -116,7 +116,7 @@
                             <td class="">
                                 <div class="row">
                                     <div class="col-2 h-100">
-                                        <img src="{{ asset('assets/img/news-2.jpg')}}" alt="" class="card-img" />
+                                        <img src="{{ asset('assets/img/news-2.jpg') }}" alt="" class="card-img" />
                                     </div>
 
                                     <div class="col-8 h-100">
@@ -155,7 +155,7 @@
                                     <div class="col-2 h-100">
                                         <div class="d-flex align-items-start flex-column">
                                             <div class="mb-auto p-2">
-                                                <a href="{{ route('job-infos')}}" class="btn btn-outline-primary p-1"
+                                                <a href="{{ route('job-infos') }}" class="btn btn-outline-primary p-1"
                                                     style="font-size: 12px">Plus d'info <i class="bi bi-info-circle"></i>
                                                 </a>
                                             </div>

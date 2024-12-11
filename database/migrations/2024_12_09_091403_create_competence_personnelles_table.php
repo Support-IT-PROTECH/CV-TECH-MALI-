@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Offre;
+
 
 return new class extends Migration
 {
@@ -17,9 +19,9 @@ return new class extends Migration
             $table->id();
             /**
              * Il y aura la colonne de l'offre ici
-             * $table->foreignIdFor(Offre::class);
              *
              */
+            $table->foreignIdFor(Offre::class);
             $table->string("nom_de_la_competence");
             $table->timestamps();
         });

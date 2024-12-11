@@ -7,6 +7,19 @@
         <div class="row col-md-6">
             <form method="POST" action="{{ route('detail.store') }}">
                 @csrf
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">ID de l'offre</label>
+                    <input type="text" class="form-control" name="id_offre" value="{{ old('id_offre') }}"
+                        id="exampleInputEmail1" aria-describedby="offerName">
+
+                    <div class="mt-1">
+                        @error('id_offre')
+                            <p class="text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Adresse de l'offre</label>
                     <input type="text" class="form-control" name="offre_adresse" value="{{ old('offre_adresse') }}"

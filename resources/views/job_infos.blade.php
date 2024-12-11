@@ -20,14 +20,15 @@
                 <div class="col position-relative">
 
                     <h5 class="card-title pt-0 pb-2 fw-bold" style="font-size: 100%">
-                        Assistant(e) Communication
+                        {{-- Assistant(e) Communication --}}
+                        {{ $offres->nom_offre }}
                     </h5>
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                         <i class="bi bi-buildings-fill"></i>
                         Africa Mining Agency
                     </h6>
                     <span class="fw-bold text-danger" style="font-size: 12px;"> <i class="bi bi-calendar"></i> Date limite :
-                        23/12/2024</span>
+                        {{ $offres->date_limite }}</span>
 
                 </div>
             </div>
@@ -37,13 +38,15 @@
             </div>
 
             <div class="description p-1" style="font-size: 14px; text-align: justify;" id="description">
-                Nous recherchons un(e) Assistant(e) Communication dynamique et
+                {{-- Nous recherchons un(e) Assistant(e) Communication dynamique et
                 créatif(ve) pour rejoindre notre équipe. Dans ce rôle, vous serez
                 en charge de la gestion et du développement de la communication
                 interne et externe de l'entreprise. Vous travaillerez en étroite
                 collaboration avec les départements marketing et communication
                 pour contribuer à l'optimisation de notre image de marque et
-                renforcer la notoriété de l'entreprise.
+                renforcer la notoriété de l'entreprise. --}}
+
+                {{ $offres->description }}
             </div>
 
             <div class="mt-2">
@@ -51,24 +54,26 @@
                     Postuler maintenant
                 </button>
 
-                <a href="{{route('company-infos')}}" class="btn btn-outline-info">Voir l'entreprise</a>
+                <a href="{{ route('company-infos') }}" class="btn btn-outline-info">Voir l'entreprise</a>
             </div>
         </div>
     </div>
 
     <div class="job-details-content" id="job-details-content">
         <!-- A propos de ce role -->
-        <div class="row">
+        <div class="row mt-32">
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">A propos de votre rôle</h4>
                 <p style="text-align: justify;">
-                    En tant qu'Assistant(e) Communication, vous aurez pour mission
+                    {{-- En tant qu'Assistant(e) Communication, vous aurez pour mission
                     principale de soutenir les équipes dans la création de supports
                     visuels et écrits, la gestion des réseaux sociaux, ainsi que
                     l'organisation d'événements et de campagnes de communication.
                     Vous serez également responsable de la production de contenus
                     pour les différents canaux de communication de l'entreprise,
-                    tout en respectant l'identité et les valeurs de la marque.
+                    tout en respectant l'identité et les valeurs de la marque. --}}
+
+                    {{ $offres->role }}
                 </p>
             </div>
             <div class="col-12 col-md-3 shadow rounded mt-4">
@@ -77,13 +82,14 @@
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-geo-alt"></i>
-                                BKO, ACI 2000
+                                {{-- BKO, ACI 2000 --}}
+                                {{ $details->adresse_offre }}
                             </h6>
                         </div>
 
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
-                                <i class="me-2 bi bi-briefcase"></i> Temps Plein
+                                <i class="me-2 bi bi-briefcase"></i> {{ $details->situation_offre }}
                             </h6>
                         </div>
                         <div class="col">
@@ -101,13 +107,13 @@
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-clock"></i>
-                                40 H(s) / S
+                                {{ $details->horaire_offre }} H(s) / S
                             </h6>
                         </div>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-cash-stack"></i>
-                                250.000F / M
+                                {{ $details->salaire_offre }}F / M
                             </h6>
                         </div>
                     </div>
@@ -120,14 +126,18 @@
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">Compétence Technique</h4>
                 <p class="m-0">
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Photoshop</span>
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Pack
+                    @foreach ($offres->competenceTechniques as $item)
+                        <span
+                            class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{ $item->nom_de_la_competence }}</span>
+                    @endforeach
+
+                    {{-- <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Pack
                         Office</span>
                     <span
                         class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Illustrator</span>
                     <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">MS
                         Project</span>
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">MS Visio</span>
+                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">MS Visio</span> --}}
                 </p>
             </div>
             <!-- <div class="col-12 col-md-3 rounded mt-4"></div> -->
@@ -138,7 +148,15 @@
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">Compétences Personnelles</h4>
                 <ul class="list-group" style="font-size: 12px">
-                    <li class="list-group-item">
+                    @foreach ($offres->competencePersonnelles as $item)
+                        <li class="list-group-item">
+                            <i class="text-primary ri-arrow-right-circle-fill"></i>
+                            {{-- Bac +2 en Communication, Marketing, ou domaine similaire --}}
+                            {{ $item->nom_de_la_competence }}
+                        </li>
+                    @endforeach
+
+                    {{-- <li class="list-group-item">
                         <i class="text-primary ri-arrow-right-circle-fill"></i>
                         Bac +2 en Communication, Marketing, ou domaine similaire
                     </li>
@@ -154,7 +172,7 @@
                     <li class="list-group-item">
                         <i class="text-primary ri-arrow-right-circle-fill"></i>
                         Excellent sens de l'organisation et gestion du temps
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <!-- <div class="col-12 col-md-3 rounded mt-4"></div> -->

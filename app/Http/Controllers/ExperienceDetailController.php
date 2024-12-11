@@ -31,12 +31,14 @@ class ExperienceDetailController extends Controller
     {
         $request->validate([
             "experience_name" => ['required', 'min:3'],
+            "id_offre" => ["required", "numeric"]
         ]);
 
         // dd($request->input());
 
         $experienceDetail = new ExperienceDetail();
         $experienceDetail->nom = $request->input("experience_name");
+        $experienceDetail->offre_id = $request->input("id_offre");
         $experienceDetail->save();
 
         return redirect('/experiences')->with('success', 'Offre Competence Personnelle created successfully.');

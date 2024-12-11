@@ -22,11 +22,13 @@ class CompetenceTechniqueController extends Controller
     {
         $request->validate([
             "competence_name" => ['required', 'min:3'],
+            "id_offre" => ["required", "numeric"]
         ]);
 
 
         $competenceTechnique = new CompetenceTechnique();
         $competenceTechnique->nom_de_la_competence = $request->input("competence_name");
+        $competenceTechnique->offre_id = $request->input("id_offre");
         $competenceTechnique->save();
 
         return redirect('/techniques')->with('success', 'Offre Competence Personnelle created successfully.');

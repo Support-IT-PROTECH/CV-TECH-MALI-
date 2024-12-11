@@ -70,7 +70,7 @@
         <div class="col-xl-12">
             <!-- <h6 class="text-muted">Filled Pills</h6> -->
             <div class="nav-align-top mb-4">
-                
+
                 <!-- {{-- Bouton Dernières offres & Les entreprise --}} -->
                 <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
                     <li class="nav-item">
@@ -94,7 +94,7 @@
                     <!-- {{-- Liste des offres --}} -->
                     <div class="tab-pane fade show active" id="navs-pills-last-offer" role="tabpanel">
                         <div class="row g-3 pt-2">
-                            @for ($i = 1; $i <= 6; $i++)
+                            @foreach ($offres as $offre)
                                 <div class="col-md-6 col-lg-4 mt-2">
                                     <div class="card p-1 text-center">
                                         <!-- logo -->
@@ -107,7 +107,7 @@
                                         <!-- Contenu -->
                                         <div class="card-body">
                                             <h5 class="card-title pt-2 pb-2 fw-bold" style="font-size: 100%">
-                                                Spécialiste Marketing Digital
+                                                {{ $offre->nom_offre }}
                                             </h5>
                                             <a href="#" class="card-link">
                                                 <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
@@ -122,6 +122,10 @@
                                                     <h6 class="fw-bold card-title m-0 p-1" style="font-size: 11px">
                                                         <i class="bi bi-geo-alt-fill"></i>
                                                         BKO, ACI 2000
+                                                        {{-- {{ $offre->offreDetails }} --}}
+                                                        {{-- @foreach ($offre->offreDetails as $item)
+                                                            $item
+                                                        @endforeach --}}
                                                     </h6>
                                                 </div>
                                                 <div class="col-6 text-end">
@@ -134,7 +138,7 @@
                                             </div>
                                             <hr class="border border-primary border-1 opacity-25 m-0" />
                                             <div class="border-0 mt-4 p-0">
-                                                <a href="{{ route('job-infos') }}"
+                                                <a href="{{ route('job-infos', $offre) }}"
                                                     class="btn btn-outline-info fw-semi-bold" style="font-size: 12px">
                                                     En savoir plus
                                                 </a>
@@ -142,11 +146,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @endforeach
                         </div>
 
                         <div class="text-center mt-3">
-                            <a href="{{ route('jobs-list') }}" class="btn btn-outline-primary">Voir plus d'offre</a>
+                            <a href="{{ route('jobs-list') }}" class="btn btn-outline-primary">Voir plus
+                                d'offre</a>
                         </div>
                     </div>
 

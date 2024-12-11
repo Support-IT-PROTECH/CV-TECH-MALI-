@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompetencePersonnelle;
+use App\Models\CompetenceTechnique;
+use App\Models\ExperienceDetail;
+use App\Models\Offre;
+use App\Models\OffreDetail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,9 +30,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function job_infos()
+    public function job_infos($id)
     {
-        return view('job_infos');
+        $offres = Offre::findOrFail($id);
+        $experiences = ExperienceDetail::get();
+        $competenceTechniques = CompetenceTechnique::get();
+        $competencePersonnelle = CompetencePersonnelle::get();
+        $details = OffreDetail::findOrFail($id);
+
+        // dd($offres);
+
+        return view('job_infos', ["offres" => $offres, "competenceTechniques" => $competenceTechniques, "experiences" => $experiences, "details" => $details, "competencePersonnelle" => $competencePersonnelle]);
     }
     public function company_infos()
     {

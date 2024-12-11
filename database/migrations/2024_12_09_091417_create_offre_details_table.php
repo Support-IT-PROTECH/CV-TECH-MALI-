@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Offre;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,9 +18,9 @@ return new class extends Migration
             $table->id();
             /**
              * Il y aura la colonne de l'offre ici
-             * $table->foreignIdFor(Offre::class);
              *
              */
+            $table->foreignIdFor(Offre::class);
             $table->string("adresse_offre");
             $table->string("situation_offre")->default("Temps plein"); // Temps plein ou temps partiel
             $table->string("horaire_offre"); // Nbres d'heures par semaine

@@ -30,7 +30,8 @@ class OffreDetailController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "offre_adresse" => ["required",],
+            "id_offre" => ["required", "numeric"],
+            "offre_adresse" => ["required", "min:3"],
             "offre_situation" => ["required",],
             "offre_horaire" => ["required", "numeric"],
             "offre_salaire" => ["required", "min:5", "numeric"],
@@ -46,6 +47,7 @@ class OffreDetailController extends Controller
         // ]);
 
         $offre_details = new OffreDetail;
+        $offre_details->offre_id = $request->input('id_offre');
         $offre_details->adresse_offre = $request->input('offre_adresse');
         $offre_details->situation_offre = $request->input('offre_situation');
         $offre_details->horaire_offre = $request->input('offre_horaire');
