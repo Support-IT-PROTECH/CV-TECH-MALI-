@@ -33,14 +33,14 @@ class HomeController extends Controller
     public function job_infos($id)
     {
         $offres = Offre::findOrFail($id);
-        $experiences = ExperienceDetail::get();
-        $competenceTechniques = CompetenceTechnique::get();
-        $competencePersonnelle = CompetencePersonnelle::get();
-        $details = OffreDetail::findOrFail($id);
+        // $experiences = ExperienceDetail::get();
+        // $competenceTechniques = CompetenceTechnique::get();
+        // $competencePersonnelle = CompetencePersonnelle::get();
+        // $details = OffreDetail::findOrFail($id);
 
         // dd($offres);
 
-        return view('job_infos', ["offres" => $offres, "competenceTechniques" => $competenceTechniques, "experiences" => $experiences, "details" => $details, "competencePersonnelle" => $competencePersonnelle]);
+        return view('job_infos', ["offres" => $offres]);
     }
     public function company_infos()
     {

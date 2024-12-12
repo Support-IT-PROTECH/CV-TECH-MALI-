@@ -99,7 +99,7 @@
                                     <div class="card p-1 text-center">
                                         <!-- logo -->
                                         <div class="imgBox p-2">
-                                            <img src="assets/img/product-2.jpg"
+                                            <img src="./uploads/{{ $offre->logo_offre }}"
                                                 class="card-img-top w-25 p-1 rounded border border-primary"
                                                 alt="..." />
                                         </div>
@@ -121,7 +121,8 @@
                                                     <!-- Contenu de la colonne gauche -->
                                                     <h6 class="fw-bold card-title m-0 p-1" style="font-size: 11px">
                                                         <i class="bi bi-geo-alt-fill"></i>
-                                                        BKO, ACI 2000
+                                                        {{-- BKO, ACI 2000 --}}
+                                                        {{ $offre->adresse_offre }}
                                                         {{-- {{ $offre->offreDetails }} --}}
                                                         {{-- @foreach ($offre->offreDetails as $item)
                                                             $item
@@ -132,7 +133,7 @@
                                                     <!-- Contenu de la colonne droite -->
                                                     <h6 class="fw-bold card-title m-0 p-1" style="font-size: 11px">
                                                         <i class="bi bi-clock-fill"></i>
-                                                        Temps Plein
+                                                        {{ $offre->situation_offre }}
                                                     </h6>
                                                 </div>
                                             </div>

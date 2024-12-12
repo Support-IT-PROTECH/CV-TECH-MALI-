@@ -15,13 +15,14 @@
 
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-2">
-                    <img class="w-75 p-1 border rounded" src="{{ asset('assets/img/product-1.jpg') }}" alt="" />
+                    <img class="w-75 p-1 border rounded" src="{{ asset('uploads/1734014547.jpg') }}" alt="" />
                 </div>
                 <div class="col position-relative">
 
                     <h5 class="card-title pt-0 pb-2 fw-bold" style="font-size: 100%">
                         {{-- Assistant(e) Communication --}}
                         {{ $offres->nom_offre }}
+
                     </h5>
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                         <i class="bi bi-buildings-fill"></i>
@@ -83,13 +84,13 @@
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-geo-alt"></i>
                                 {{-- BKO, ACI 2000 --}}
-                                {{ $details->adresse_offre }}
+                                {{ $offres->adresse_offre }}
                             </h6>
                         </div>
 
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
-                                <i class="me-2 bi bi-briefcase"></i> {{ $details->situation_offre }}
+                                <i class="me-2 bi bi-briefcase"></i> {{ $offres->situation_offre }}
                             </h6>
                         </div>
                         <div class="col">
@@ -107,13 +108,13 @@
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-clock"></i>
-                                {{ $details->horaire_offre }} H(s) / S
+                                {{ $offres->horaire_offre }} H(s) / S
                             </h6>
                         </div>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 bi bi-cash-stack"></i>
-                                {{ $details->salaire_offre }}F / M
+                                {{ $offres->salaire_offre }}F / M
                             </h6>
                         </div>
                     </div>
@@ -126,9 +127,14 @@
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">Compétence Technique</h4>
                 <p class="m-0">
-                    @foreach ($offres->competenceTechniques as $item)
+                    {{-- @foreach ($offres->competenceTechniques as $item)
                         <span
                             class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{ $item->nom_de_la_competence }}</span>
+                    @endforeach --}}
+
+                    @foreach (explode(',', $offres->competence_technique) as $value)
+                        <span
+                            class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{ $value }}</span>
                     @endforeach
 
                     {{-- <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">Pack
@@ -148,11 +154,19 @@
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">Compétences Personnelles</h4>
                 <ul class="list-group" style="font-size: 12px">
-                    @foreach ($offres->competencePersonnelles as $item)
+                    {{-- @foreach ($offres->competencePersonnelles as $item)
+                        <li class="list-group-item">
+                            <i class="text-primary ri-arrow-right-circle-fill"></i>
+                            Bac +2 en Communication, Marketing, ou domaine similaire
+                            {{ $item->nom_de_la_competence }}
+                        </li>
+                    @endforeach --}}
+
+                    @foreach (explode(',', $offres->competence_personnelle) as $value)
                         <li class="list-group-item">
                             <i class="text-primary ri-arrow-right-circle-fill"></i>
                             {{-- Bac +2 en Communication, Marketing, ou domaine similaire --}}
-                            {{ $item->nom_de_la_competence }}
+                            {{ $value }}
                         </li>
                     @endforeach
 
@@ -188,11 +202,13 @@
                 </p>
 
                 <ul class="list-group" style="font-size: 12px">
-                    <li class="list-group-item">
-                        <i class="text-primary ri-arrow-right-circle-fill"></i> Gérer
-                        Création de contenu
-                    </li>
-                    <li class="list-group-item">
+                    @foreach (explode(',', $offres->responsabilite_offre) as $value)
+                        <li class="list-group-item">
+                            <i class="text-primary ri-arrow-right-circle-fill"></i> {{ $value }}
+                        </li>
+                    @endforeach
+
+                    {{-- <li class="list-group-item">
                         <i class="text-primary ri-arrow-right-circle-fill"></i>
                         Gestion des réseaux sociaux
                     </li>
@@ -207,7 +223,7 @@
                     <li class="list-group-item">
                         <i class="text-primary ri-arrow-right-circle-fill"></i>
                         Collaboration avec les équipes internes
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <!-- <div class="col-12 col-md-3 rounded mt-4"></div> -->
