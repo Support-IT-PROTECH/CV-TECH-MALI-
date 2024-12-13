@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // creation de la table profile
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string("image");
-            $table->string("nom");
-            $table->string("prenom");
-            $table->longText("description");
-            $table->longText("experience");
+            $table->string('nom');
+            $table->string('image')->nullable();
+            $table->longText('description');
+            $table->longText('experience');
+            $table->string('date_naissance');
+            $table->string('age');
+            $table->string('adresse');
+            $table->string('telephone');
+            $table->string('email');
+            $table->string('diplome');
+            $table->string('niveau_travail');
             $table->timestamps();
         });
     }

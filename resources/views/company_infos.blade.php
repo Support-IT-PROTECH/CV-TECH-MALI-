@@ -14,10 +14,16 @@
             background-size: cover;
           ">
         <div class="position-absolute top-100 start-50 translate-middle w-75 container p-2 card shadow" id="second-card">
-             @forelse ($entreprises as $entreprise)
+           @foreach ($entreprises as $entreprise)
+               
+           
              <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-2">
-                    <img class="w-75 p-1 border rounded" src="images/{{$entreprise->image}}" alt="" />
+                  
+                  <img class="w-75 p-1 border rounded" src="" alt="image_entreprise" />
+                     
+                
+                    
                 </div>
                 <div class="col position-relative">
                     <h5 class="card-title pt-0 pb-2 fw-bold" style="font-size: 100%">
@@ -45,9 +51,7 @@
                   </div>
               </div>
 
-             @empty
-                 
-             @endforelse
+             
 
         </div>
     </div>
@@ -63,20 +67,21 @@
                 </h6>
                     {{$entreprise->vision}}
                 </p>
+                @endforeach
                 <!-- Valeur -->
                 <ul class="list-group" style="font-size: 12px">
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
                         Nos Valeurs
                     </h6>
-                @foreach ($valeurs as $valeur)
-
+                
+                @foreach (explode(',',$entreprise->nom_valeur) as $item) 
+                    {{-- <p>{{$item}}</p> --}}
                     <li class="list-group-item">
                         <i class="text-primary ri-checkbox-circle-fill"></i>
-                       {{$valeur->valeurs}}
+                       {{$item}}
                     </li>
                 @endforeach
-
-                    
+                       
                 </ul>
                     
             </div>
@@ -85,37 +90,41 @@
                     <div class="row row-cols-1 row-cols-md-1 row-cols-sm-2 g-2" style="font-size: 13px; font-weight: 600">
                      
 
-                        <div class="col">
-                            @foreach ($adresses as $adresse)
-                     
-                            
+                        
+                      
+                     @foreach ($entreprises as $entreprise)
+                     <div class="col">
                         <h6 class="card-title m-0 p-1" style="font-size: 100%">
                             <i class="me-2 bi bi-geo-alt"></i>
-                            {{$adresse->adresse}}
+                           {{ $entreprise->adresse}}
                         </h6>
                     </div>
                     <div class="col">
                         <h6 class="card-title m-0 p-1" style="font-size: 100%">
                             <i class="me-2 ri-mail-line"></i>
-                            {{$adresse->email}}
+                            {{ $entreprise->email}}
                         </h6>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 ri-phone-line"></i>
-                               {{$adresse->telephone}}
+                                {{ $entreprise->telephone}}
                             </h6>
                         </div>
                         <div class="col">
                             <h6 class="card-title m-0 p-1" style="font-size: 100%">
                                 <i class="me-2 ri-global-line"></i>
-                                {{$adresse->web_URL}}
+                                {{ $entreprise->site_web}}
                             </h6>
                         </div>
-                        @endforeach
+                       
                       
                         
                       
                     </div>
+                     @endforeach
+                            
+                       
+                    
                 </div>
             </div>
         </div>
@@ -125,12 +134,12 @@
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">Secteur d'activité</h4>
 
-
                 <p class="m-0">
-                @foreach ($activities as $activitie)
+                    @foreach (explode(',',$entreprise->nom_secteur_activite) as $item) 
 
-                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{$activitie->Nom_secteur}}</span> 
-                @endforeach
+                    <span class="btn btn-outline-primary mx-2 my-2 px-3 py-2 text-uppercase d-inline-block">{{$item}}</span> 
+                
+                    @endforeach
 
                 </p>
             </div>

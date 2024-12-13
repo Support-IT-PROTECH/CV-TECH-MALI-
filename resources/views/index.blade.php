@@ -213,30 +213,32 @@
             <i class="bi bi-star-fill"></i>
         </h2>
         <div class="row g-3">
-            @for ($i = 0; $i < 4; $i++)
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card shadow h-100">
-                        <div class="card-header p-0">
-                            <img src="assets/img/profile-img.jpg" class="card-img-top w-50 rounded-circle p-2"
-                                alt="..." />
-                        </div>
-                        <div class="card-body pb-0">
-                            <h5 class="card-title fw-bold">Moussa Sangaré</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">
-                                Auditeur Comptable & Financier
-                            </h6>
+            @foreach ($profile as $profile)
+            <div class="col-sm-6 col-lg-3">
+                <div class="card shadow h-100">
+                    <div class="card-header p-0">
+                        <img src="images/{{$profile->image}}" class="card-img-top w-50 rounded-circle p-2"
+                            alt="..." />
+                    </div>
+                    <div class="card-body pb-0">
+                        <h5 class="card-title fw-bold">{{$profile->nom}}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                           {{$profile->niveau_travail}}
+                        </h6>
 
-                            <span class="badge bg-warning">+3 ans Exp</span>
-                        </div>
-                        <div class="w-100 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
-                            <a href="{{ route('top-profile') }}" class="link fw-semi-bold">
-                                <i class="bi bi-info-circle"></i>
-                                En savoir plus
-                            </a>
-                        </div>
+                        <span class="badge bg-warning">+3 ans Exp</span>
+                    </div>
+                    <div class="w-100 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
+                        <a href="{{ route('top-profile',$profile->id) }}" class="link fw-semi-bold">
+                            <i class="bi bi-info-circle"></i>
+                            En savoir plus
+                        </a>
                     </div>
                 </div>
-            @endfor
+            </div>
+            @endforeach
+                
+        
         </div>
     </div>
 @endsection

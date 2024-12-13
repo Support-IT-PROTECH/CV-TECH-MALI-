@@ -3,41 +3,39 @@
 @section('content')
     <div class="container">
         <div class="row gy-4 justify-content-center">
-            {{-- afficher les informations de la table profile(nom,prenom,description et experience) --}}
-            @foreach ($profiles as $profile)
+            {{-- afficher les informationss de la table profile(nom,prenom,description et experience) --}}
+             {{-- @foreach ($profiles as $profile) --}}
             <div class="col-lg-4 p-2 rounded overflow-hidden"
           >
-          <img src="images/{{$profile->image}}" alt="" style="width: 400px; height:430px;object-fit:cover">
+          <img src="{{asset('images/' . $profile->image) }}" alt="" style="width: 400px; height:430px;object-fit:cover">
 
         </div>
         <div class="col-lg-8">
             <h3 class="card-title fw-bold text-uppercase fs-2 py-0">
-              {{$profile->prenom}} {{$profile->nom}}
+             {{$profile->nom}}
             </h3>
             <!-- <h2 >Mamadou Alpha Ibrahim SANGARE</h2> -->
             <p class="fst-italic py-2" style="text-align: justify">
                 {{$profile->description}}
             </p>
-            @endforeach
-
-            @foreach ($credentials as $credential)
+          
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                             <strong>Date de naissance :</strong>
-                            <span>{{$credential->date_naissance}}</span>
+                            <span>{{$profile->date_naissance}}</span>
                         </li>
                       
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                             <strong>Téléphone :</strong>
-                            <span>{{$credential->telephone}}</span>
+                            <span>{{$profile->telephone}}</span>
                         </li>
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                            <strong>Quartier :</strong> <span>{{$credential->adresse}}</span>
+                            <strong>Quartier :</strong> <span>{{$profile->adresse}}</span>
                         </li>
                     </ul>
                 </div>
@@ -46,32 +44,32 @@
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                             <strong>Âge :</strong>
-                            <span>{{$credential->age}} ans</span>
+                            <span>{{$profile->age}} ans</span>
                         </li>
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                             <strong>Diplôme :</strong>
-                            <span>{{$credential->Diplome}}</span>
+                            <span>{{$profile->diplome}}</span>
                         </li>
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                             <strong>Email :</strong>
-                            <span>{{$credential->email}}</span>
+                            <span>{{$profile->email}}</span>
                         </li>
                         <li class="list-group-item">
                             <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                            <strong>Freelance :</strong> <span>{{$credential->niveau_travail}}</span>
+                            <strong>Freelance :</strong> <span>{{$profile->niveau_travail}}</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            @endforeach
+           
                 
-                @foreach ($profiles as $profile)
+       
                 <p class="py-2" style="text-align: justify">
-                  {{ $profile->experience}}
+                  {{$profile->experience}}
                 </p>
-                @endforeach
+            {{-- @endforeach  --}}
             </div>
         </div>
     </div>
@@ -81,7 +79,7 @@
         <hr class="border border-primary border-3 opacity-25" />
     </div>
 
-    <!-- Formation Expérience Compétence etc... -->
+    <!-- formationss Expérience Compétence etc... -->
     <div class="">
         <div class="row">
             <!-- Section Profil -->
@@ -89,26 +87,27 @@
                 <div class="card">
                     <div class="card-header py-0">
                         <div class="card-title text-uppercase text-center fs-4 fw-bold py-1">
-                            Formation
+                            formations
                         </div>
                     </div>
 
-                    @foreach ($formations as $formation)
+                    {{-- @foreach ($formationss as $formations) --}}
                     <div class="card-body pb-0 pt-2">
                         <div class="resume-item">
                             <div class="card-title fs-5 py-0">
-                                {{$formation->nom}}
+                                {{$formations->nom_formation}}
                             </div>
-                            <h6>{{ $formation->duree}}</h6>
+                            <h6>{{$formations->date_debut_fin_formation}}</h6>
                             <p class="card-subtitle py-1">
-                                <em>{{$formation->lieu}}</em>
+                                <em>{{$formations->lieu_formation}}</em>
                             </p>
                             <p class="" style="font-size: 14px">
-                               {{$formation->description}}
+                               {{$formations->description_formation}}
                             </p>
                         </div>                        
                     </div>
-                    @endforeach
+                    {{-- @endforeach --}}
+
                     <!-- End Resume Item -->
                     
                 </div>
@@ -120,38 +119,27 @@
                         </div>
                     </div>
                     <!-- End Section Title -->
-
+                    
                     <div class="card-body">
                         <div class="container py-1">
+                @foreach (explode(',',$formations->nom_competence) as $item) 
                             <div class="row">
-                                <div class="col-lg-12" style="font-size: 14px">
-                                    <span class="skill">PHOTOSHOP</span>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                            65%
-                                        </div>
-                                    </div>
-                                    <!-- End Skills Item -->
 
-                                    <span class="skill">MS PROJECT</span>
+                                <div class="col-lg-12" style="font-size: 14px">
+                                    <span class="skill text-uppercase">{{$item}}</span>
+                                    <!-- Start Skills Item -->
+                                    {{-- @foreach (explode(',',$formations->niveau_competence) as $item)
+                                        
+                                    
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                            85%
-                                        </div>
+                                     <li>{{$item}}</li>
                                     </div>
-                                    <!-- End Skills Item -->
-                                    <span class="skill">PACK OFFICE</span>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                            100%
-                                        </div>
-                                    </div>
+                                    @endforeach --}}
+                                   
                                     <!-- End Skills Item -->
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -167,34 +155,29 @@
 
                     <div class="card-body pb-2 pt-2">
 
-                        @foreach ($experiences as $experience)
+                        {{-- @foreach ($formations as $formations) --}}
                         <div class="resume-item pb-2">
-                            <div class="card-title fs-5 py-0">{{$experience->nom}}</div>
-                            <h6>{{$experience->duree}}</h6>
-                            <p class="card-subtitle py-1"><em>{{$experience->lieu}}</em></p>
+                            <div class="card-title fs-5 py-0">{{$formations->nom_experience_professionnelle}}</div>
+                            <h6>{{$formations->date_debut_fin_experience_professionnelle}}</h6>
+                            <p class="card-subtitle py-1"><em>{{$formations->lieu_experience_professionnelle}}</em></p>
                             
                         </div>
                         
-                        @foreach ($missions as $mission)
-                        <ul class="list-group" style="font-size: 75%;font-weight: 600;">
-                            <li class="py-1 list-group-item">
-                                <span class="text-primary">
-                                    <i class="bi bi-record-circle-fill"></i>
-                                </span>
-                                {{$mission->list_objectif}}
-                            </li>
+                                @foreach (explode(',',$formations->objective_professionnelle) as $item)
+                                <ul class="list-group" style="font-size: 75%;font-weight: 600;">
+                                    <li class="py-1 list-group-item">
+                                        <span class="text-primary">
+                                            <i class="bi bi-record-circle-fill"></i>
+                                        </span>
+                                       {{$item}}
+                                    </li>
+                                </ul>
 
-                        </ul>
-                        @endforeach
+                                @endforeach
                         
-                        @endforeach
+                        {{-- @endforeach --}}
                         <!-- End Resume Item -->
-
-                        
-                        <!-- End Resume Item -->
-
-                        
-                        
+  
                     </div>
                 </div>
             </div>
