@@ -12,10 +12,10 @@ class EntrepriseController extends Controller
     {
         return view('entreprise.entreprise_create');
     }
-    public function store(Request $request)
+    public function store(Entreprise_2 $entreprise_2, Request $request)
     {
         // Validation
-        $validated = $request->validate([
+        $request->validate([
             'image' => 'nullable|image|max:2048',
             'nom' => 'required|string|max:255',
             'domaine' => 'nullable|string|max:255',
@@ -31,26 +31,26 @@ class EntrepriseController extends Controller
 
         ]);
 
-        $valeurs = implode(',', $validated['valeurs']); // Ex: "Innovation,Intégrité,Responsabilité"
-        $secteurs = implode(',', $validated['secteur_d_activite']); // Ex: "Technologie,Santé,Éducation"
-        $image = null;
+        // Sauvegarde de l'image
+
         if ($request->hasFile('image')) {
-            $imagepath = $request->file('image')->store('images', 'public'); // Stocke dans storage/app/public/images
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images', $filename);
+            $entreprise_2->image = $filename;
         }
-        // Insère dans la base de données
-        Entreprise_2::create([
-            'image' => $imagepath,
-            'nom' => $validated['nom'],
-            'domaine' => $validated['domaine'],
-            'description' => $validated['description'],
-            'vision' => $validated['vision'],
-            'nom_valeur' => $valeurs,
-            'nom_secteur_activite' => $secteurs,
-            'adresse' => $validated['adresse'],
-            'telephone' => $validated['telephone'],
-            'email' => $validated['email'],
-            'site_web' => $validated['url'],
-        ]);
+        // Sauvegarde des données de l'entreprise
+        $entreprise_2->nom = $request->nom;
+        $entreprise_2->domaine = $request->domaine;
+        $entreprise_2->description = $request->description;
+        $entreprise_2->vision = $request->vision;
+        $entreprise_2->nom_valeur = json_encode($request->valeurs);
+        $entreprise_2->nom_secteur_activite = json_encode($request->secteur_d_activite);
+        $entreprise_2->adresse = $request->adresse;
+        $entreprise_2->telephone = $request->telephone;
+        $entreprise_2->email = $request->email;
+        $entreprise_2->site_web = $request->url;
+        $entreprise_2->save();
 
         return redirect('/');
     }

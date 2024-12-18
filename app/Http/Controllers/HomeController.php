@@ -41,14 +41,14 @@ class HomeController extends Controller
     {
         return view('job_infos');
     }
-    public function company_infos()
+    public function company_infos($id)
     {
 
 
 
 
-        $entreprises = Entreprise_2::all();
-        return view('company_infos', compact('entreprises'));
+        $entreprise = Entreprise_2::findOrFail($id);
+        return view('company_infos', compact('entreprise'));
     }
 
     public function jobs_list()

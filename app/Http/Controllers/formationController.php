@@ -44,6 +44,6 @@ class formationController extends Controller
             'objective_professionnelle' => $objective_professionnelle,
         ]);
 
-        return redirect()->route('home');
+        return redirect('/');
     }
 }

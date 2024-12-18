@@ -154,38 +154,40 @@
                     <div class="tab-pane fade" id="navs-pills-all-entreprise" role="tabpanel">
                         <div class="row g-3">
                             {{-- Liste des entreprise --}}
-                            @for ($i = 1; $i <= 6; $i++)
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card position-relative pb-4 pt-2 h-100">
-                                        <span class="position-absolute top-0 end-0 badge bg-warning">
-                                            2 offre(s)
-                                        </span>
-                                        <div class="imgBox text-center">
-                                            <img src="assets/img/product-1.jpg"
-                                                class="card-img-top rounded-circle border-3 border-primary" alt="..."
-                                                style="max-width: 25%; border: 2px dashed" />
+                            @foreach ($entreprise as $entreprise)
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card position-relative pb-4 pt-2 h-100">
+                                    <span class="position-absolute top-0 end-0 badge bg-warning">
+                                        2 offre(s)
+                                    </span>
+                                    <div class="imgBox text-center">
+                                        <img src="{{asset('images/' . $entreprise->image) }}"
+                                            class="card-img-top rounded-circle border-3 border-primary" alt="..."
+                                            style="max-width: 25%; border: 2px dashed" />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center p-1">
+                                           {{$entreprise->nom}}
+                                        </h5>
+                                        <p class="card-text mb-2" style="font-size: 11px;">
+                                            {{$entreprise->vision}}
+                                        </p>
+                                        <div class="badgeContenair">
+                                            @foreach (explode(',',$entreprise->nom_secteur_activite) as $item)
+                                            <span class="badge bg-secondary">{{$item}}</span>
+                                            @endforeach
+                                            
                                         </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center p-1">
-                                                Africa Agency Mining
-                                            </h5>
-                                            <p class="card-text mb-2" style="font-size: 11px;">
-                                                Some quick example text to build on the card title
-                                                and Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ut.
-                                            </p>
-                                            <div class="badgeContenair">
-                                                <span class="badge bg-secondary">Marketing</span>
-                                                <span class="badge bg-secondary">Comptabilité</span>
-                                                <span class="badge bg-secondary">Audit</span>
-                                            </div>
-                                            <div
-                                                class="position-absolute w-100 bottom-0 end-0 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
-                                                <a href="companyDetails.html" class="link">En savoir plus</a>
-                                            </div>
+                                        <div
+                                            class="position-absolute w-100 bottom-0 end-0 text-white text-center mt-0 p-2 rounded-bottom bg-success-light">
+                                            <a href="{{route('company-infos', $entreprise->id)}}" class="link">En savoir plus</a>
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            </div>
+                            @endforeach
+                                
+                       
                         </div>
                         <div class="text-center mt-3">
                             <a href="#" class="btn btn-outline-primary">

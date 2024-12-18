@@ -14,16 +14,14 @@
             background-size: cover;
           ">
         <div class="position-absolute top-100 start-50 translate-middle w-75 container p-2 card shadow" id="second-card">
-           @foreach ($entreprises as $entreprise)
+           {{-- @foreach ($entreprises as $entreprise) --}}
                
            
              <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-2">
                   
-                  <img class="w-75 p-1 border rounded" src="" alt="image_entreprise" />
+                  <img class="w-75 p-1 border rounded" src="{{asset('images/' . $entreprise->image) }}" alt="image_entreprise" />
                      
-                
-                    
                 </div>
                 <div class="col position-relative">
                     <h5 class="card-title pt-0 pb-2 fw-bold" style="font-size: 100%">
@@ -50,15 +48,12 @@
                       </button>
                   </div>
               </div>
-
-             
-
         </div>
     </div>
 
     <div class="company-details-content" id="job-details-content">
         <!-- A propos de ce role -->
-        <div class="row">
+        <div class="row " style="margin-block-start: 8rem;">
             <div class="col-12 col-md-9">
                 <h4 class="card-title fs-4 fw-bold">A propos de nous</h4>
                 <p>
@@ -67,7 +62,7 @@
                 </h6>
                     {{$entreprise->vision}}
                 </p>
-                @endforeach
+                {{-- @endforeach --}}
                 <!-- Valeur -->
                 <ul class="list-group" style="font-size: 12px">
                     <h6 class="card-subtitle fw-bold mb-2 text-body-secondary">
@@ -77,8 +72,7 @@
                 @foreach (explode(',',$entreprise->nom_valeur) as $item) 
                     {{-- <p>{{$item}}</p> --}}
                     <li class="list-group-item">
-                        <i class="text-primary ri-checkbox-circle-fill"></i>
-                       {{$item}}
+                        <i class="text-primary ri-checkbox-circle-fill"> {{$item}}</i>
                     </li>
                 @endforeach
                        
@@ -92,7 +86,7 @@
 
                         
                       
-                     @foreach ($entreprises as $entreprise)
+                     {{-- @foreach ($entreprises as $entreprise) --}}
                      <div class="col">
                         <h6 class="card-title m-0 p-1" style="font-size: 100%">
                             <i class="me-2 bi bi-geo-alt"></i>
@@ -121,7 +115,7 @@
                         
                       
                     </div>
-                     @endforeach
+                     {{-- @endforeach --}}
                             
                        
                     
@@ -165,7 +159,7 @@
                         <td class="">
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-2">
-                                    <img src="assets/img/news-2.jpg" alt="" class="card-img" />
+                                    <img src="{{asset('assets/img/news-2.jpg')}}" alt="" class="card-img" />
                                 </div>
 
                                 <div class="col-8">
