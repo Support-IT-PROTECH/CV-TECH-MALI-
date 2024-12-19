@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\credential;
-use App\Models\Entreprise;
+
 use App\Models\Entreprise_2;
-use App\Models\Entreprise_Adresse;
-use App\Models\Entreprise_valeur;
-use App\Models\Experience_obejctif;
-use App\Models\Experience_professionnel;
+
 use App\Models\formation;
 use App\Models\Profile;
-use App\Models\secteur_activite;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class HomeController extends Controller
 {
@@ -44,9 +38,6 @@ class HomeController extends Controller
     public function company_infos($id)
     {
 
-
-
-
         $entreprise = Entreprise_2::findOrFail($id);
         return view('company_infos', compact('entreprise'));
     }
@@ -60,10 +51,7 @@ class HomeController extends Controller
     {
 
         $profile = Profile::findOrFail($id);
-        // dd($profile);
         $formations = formation::findOrFail($id);
         return view('top_profile', compact('profile', 'formations'));
     }
-
-    public function show($id) {}
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entreprise_2;
-use App\Models\Entreprise_Adresse;
 use Illuminate\Http\Request;
 
 class EntrepriseController extends Controller
@@ -27,8 +26,6 @@ class EntrepriseController extends Controller
             'telephone' => 'required',
             'email' => 'required|email',
             'url' => 'required|nullable',
-
-
         ]);
 
         // Sauvegarde de l'image

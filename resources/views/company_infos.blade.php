@@ -83,9 +83,6 @@
                 <div class="pt-2 pb-2">
                     <div class="row row-cols-1 row-cols-md-1 row-cols-sm-2 g-2" style="font-size: 13px; font-weight: 600">
                      
-
-                        
-                      
                      {{-- @foreach ($entreprises as $entreprise) --}}
                      <div class="col">
                         <h6 class="card-title m-0 p-1" style="font-size: 100%">
@@ -110,15 +107,10 @@
                                 {{ $entreprise->site_web}}
                             </h6>
                         </div>
-                       
-                      
-                        
-                      
+
                     </div>
                      {{-- @endforeach --}}
-                            
-                       
-                    
+
                 </div>
             </div>
         </div>
