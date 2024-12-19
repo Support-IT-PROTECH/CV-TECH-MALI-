@@ -14,9 +14,10 @@
 
             </div>
             <div class="col-lg-8">
-                <h3 class="card-title fw-bold text-uppercase fs-2 py-0">
+                <div class="card-title fw-bold text-uppercase fs-2 py-0">
                     Hiromi Désiré Diarra
-                </h3>
+                </div>
+                <h3>Auditeur Comptable & Financier</h3>
                 <!-- <h2 >Mamadou Alpha Ibrahim SANGARE</h2> -->
                 <p class="fst-italic py-2" style="text-align: justify">
                     Candidat passionné par la communication et le marketing digital.
@@ -34,16 +35,16 @@
                             </li>
                             <li class="list-group-item">
                                 <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                                <strong>Site web :</strong> <span>www.jdupont.com</span>
+                                <strong>Adresse :</strong> <span>Yirimadio ZRNY</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
                                 <strong>Téléphone :</strong>
-                                <span>+33 6 12 34 56 78</span>
+                                <span>+223 12 34 56 78</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                                <strong>Ville :</strong> <span>Paris, France</span>
+                                <strong>Ville :</strong> <span>BAMAKO, MALI</span>
                             </li>
                         </ul>
                     </div>
@@ -51,8 +52,8 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                                <strong>Âge :</strong>
-                                <span>32 ans</span>
+                                <strong>Statut :</strong>
+                                <span>Célibataire</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="text-primary"><i class="bi bi-arrow-right-circle-fill"></i></span>

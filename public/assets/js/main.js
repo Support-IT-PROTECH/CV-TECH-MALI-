@@ -363,7 +363,7 @@
             bottomPosition2 +
             window.scrollY -
             (bottomPosition1 + window.scrollY) +
-            (-20) +
+            -20 +
             "px";
 
         // Appliquer la nouvelle position à job-details-content
@@ -376,6 +376,6 @@
     // Écouter les événements de défilement et de redimensionnement pour ajuster la position dynamiquement
     window.addEventListener("scroll", ajusterPosition);
     window.addEventListener("resize", ajusterPosition);
-
-    
 })();
+
+

@@ -182,23 +182,23 @@
                 <ul class="list-group list-group-flush card-title fs-6" style="text-transform: uppercase">
                     <li class="list-group-item">
                         <span class="text-primary"><i class="bi bi-house-door-fill me-2"></i></span>
-                        <a href="{{ route('/')}}">Accueil</a>
+                        <a href="{{ route('/') }}#">Accueil</a>
                     </li>
                     <li class="list-group-item">
                         <span class="text-primary"><i class="bi bi-gift-fill me-2"></i></span>
-                        <a href="{{ route('jobs-list')}}">Offres</a>
+                        <a href="{{ route('jobs-list') }}#">Offres</a>
                     </li>
                     <li class="list-group-item">
                         <span class="text-primary"><i class="bi bi-buildings-fill me-2"></i></span>
-                        <a href="#">Entreprises</a>
+                        <a href="{{ route('company-lists') }}#">Entreprises</a>
                     </li>
                     <li class="list-group-item">
                         <span class="text-primary"><i class="bi bi-info-circle-fill me-2"></i></span>
-                        <a href="#">A propos</a>
+                        <a href="{{ route('a-propos') }}#">A propos</a>
                     </li>
                     <li class="list-group-item">
                         <span class="text-primary"><i class="bi bi-person-vcard-fill me-2"></i></span>
-                        <a href="#">Contact</a>
+                        <a href="{{ route('a-propos') }}#contact">Contact</a>
                     </li>
                 </ul>
             </div>

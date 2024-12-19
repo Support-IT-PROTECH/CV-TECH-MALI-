@@ -1124,8 +1124,12 @@ h6 {
 
 
 /*--------------------------------------------------------------
-# OFFCANVAS
+# CARD COMPANY
 --------------------------------------------------------------*/
-.offcanvas{
-  width: 300px !important;
+.card-company {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-company:hover {
+  transform: scale(1.03);
 }

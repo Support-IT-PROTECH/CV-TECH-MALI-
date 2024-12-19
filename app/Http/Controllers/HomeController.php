@@ -34,6 +34,11 @@ class HomeController extends Controller
         return view('company_infos');
     }
 
+    public function company_lists()
+    {
+        return view('company_lists');
+    }
+
     public function jobs_list()
     {
         return view('offres_list');
@@ -42,5 +47,10 @@ class HomeController extends Controller
     public function top_profile()
     {
         return view('top_profile');
+    }
+
+    public function a_propos()
+    {
+        return view('a_propos');
     }
 }
